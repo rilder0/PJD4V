@@ -35,7 +35,7 @@ public class BulletController : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyController>().TakeEnergy(damage);
+            //other.GetComponent<EnemyController>().TakeEnergy(damage);
             Instantiate(bulletExplosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
