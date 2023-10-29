@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class EnemyAIPatrulhaBehaviour : StateMachineBehaviour
 {
+    private EnemyController myEnemy;
+
+
+
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        myEnemy = animator.GetComponent<EnemyController>();
+
+        if(Random.value < 0.5f) {
+        myEnemy.SetWalkDirection(Vector2.left);        
+        }
+        else {
+        myEnemy.SetWalkDirection(Vector2.right);        
+        }
+    }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
